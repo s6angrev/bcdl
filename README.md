@@ -1,5 +1,5 @@
 # Bandcamp Collection Download
-The process do download your purchases from [Bandcamp](https://bandcamp.com) is not very user friendly.
+The process to download your purchases from [Bandcamp](https://bandcamp.com) is not very user friendly.
 From their `purchases` view the user has to click the `download album` button, which opens a new tab.
 In the new tab one needs to wait until the link is ready to be clickable, after which one can download a `zip` of the album.
 The `zip` file needs to be extracted to the local disc and possibly put in its respective folder.
