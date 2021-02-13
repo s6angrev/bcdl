@@ -229,6 +229,10 @@ def view_collection():
     album_number_list_input = typer.prompt("\nchoose albums to download by number")
     album_number_list = number_input_to_list(album_number_list_input)
 
+    download = typer.confirm("\ndownload any?")
+    if not download:
+        typer.Exit()
+
     typer.echo("\nyou chose:\n")
     for album in [config.collection[idx] for idx in album_number_list]:
         typer.echo(f"{album['purchased']} {album['band_name']} {album['album_title']}")
