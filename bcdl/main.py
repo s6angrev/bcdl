@@ -233,8 +233,8 @@ def view_collection():
     for album in [config.collection[idx] for idx in album_number_list]:
         typer.echo(f"{album['purchased']} {album['band_name']} {album['album_title']}")
 
-    delete = typer.confirm("\ndownload these?")
-    if delete:
+    confirm_selection = typer.confirm("\ndownload these?")
+    if confirm_selection:
         with typer.progressbar(album_number_list) as progress:
             for idx in progress:
                 album = config.collection[idx]
