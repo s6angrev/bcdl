@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__file__)
 
 CONFIG_FILE = Path(__file__).resolve().parent / "config.json"
-LIBRARY_FOLDER_DEFAULT = Path(__file__).resolve().parent / "library"
+LIBRARY_FOLDER_DEFAULT = Path().cwd() / "library"
 
 app = typer.Typer()
 
@@ -42,7 +42,7 @@ class Config:
     def from_file(cls, fpath: Union[str, Path] = CONFIG_FILE):
         fpath = Path(fpath) if isinstance(fpath, str) else fpath
         if not fpath.exists():
-            typer.echo(f"please run 'python {__file__} configure")
+            typer.echo(f"please run 'bcdl configure")
             raise typer.Exit()
 
         with open(fpath) as f:
