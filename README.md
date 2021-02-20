@@ -13,10 +13,22 @@ The albums will be downloaded with the structure
 
 Downloading an album happens asyncronously, so all the files are downloaded simultaneously, but one album at a time.
 
+## installation
+The `bcdl` cli can be installed by running
+```
+$ pip install git+https://github.com/s6angrev/bcdl.git
+```
+or by cloning the repo first:
+```
+$ git clone https://github.com/s6angrev/bcdl.git
+$ pip install bcdl/
+```
+You can always still run it directly without installing by replacing the `bcdl` command with `python bcdl/__init__.py`, assuming the required packages are installed.
+
 ## setup
 After cloning the repo and installation of `requirements.txt` (possibly in a virtual environment) you can run
 ```
-$ python main.py configure
+$ bcdl configure
 ```
 You will be asked to setup 2 values needed for interactions with your bandcamp collection:
 * **fan_id:** you can find this if you are logged into you account and go to https://bandcamp.com/api/fan/2/collection_summary
@@ -29,13 +41,13 @@ All this info will be saved in a file `config.json` and can be manually updated 
 ## locally caching your collection
 Once you set up your configuration you can download your collection by running
 ```
-$ python main.py update-collection
+$ bcdl update-collection
 ```
 
 ## download albums from your collection
 If you run
 ```
-$ python main.py view-collection
+$ bcdl view-collection
 ```
 you will see a list of your albums with the timestamp when you bought.
 Every purchase has a number that you use to specify the list of items you want to download.
@@ -49,5 +61,5 @@ choose albums to download by number: 0, 3-7, 9, 10
 ## download an album from url
 An alternative way to download an album is to specify the url directly:
 ```
-python main.py download https://soulglophl.bandcamp.com/album/songs-to-yeet-at-the-sun
+bcdl download https://soulglophl.bandcamp.com/album/songs-to-yeet-at-the-sun
 ```
