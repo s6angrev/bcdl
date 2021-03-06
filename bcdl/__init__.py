@@ -285,6 +285,7 @@ def configure(
         library_folder=library_folder,
         collection=[],
     )
+    config.collection = list(get_collection(fan_id=config.fan_id))
     config.save()
 
 
