@@ -121,9 +121,8 @@ async def get_album_data_from_head(album_url: str, session):
 def generate_file_names(tralbum_data, folder, album_art_url: str = None):
 
     for track in tralbum_data["trackinfo"]:
-        fname = folder.joinpath(
-            f"{track['track_num']:02d} - {track['title'].replace('/', ' ')}.mp3"
-        )
+        track_title = track['title'].replace('/', '_').replace('\\', '_')
+        fname = folder.joinpath(f"{track['track_num']:02d} - {track_title}.mp3")
         source_file = track["file"]
         if not source_file:
             logger.warning(f"could not find url for track {fname}, skipping")
@@ -156,8 +155,8 @@ async def download_album(*, album_url: str, album_art_url: str = None) -> None:
 
         folder = (
             config.library_folder
-            / tralbum_data["artist"]
-            / tralbum_data["current"]["title"]
+            / tralbum_data["artist"].replace('/', '_').replace('\\', '_')
+            / tralbum_data["current"]["title"].replace('/', '_').replace('\\', '_')
         )
         folder.mkdir(exist_ok=True, parents=True)
 
