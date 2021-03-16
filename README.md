@@ -21,6 +21,7 @@ $ pip install git+https://github.com/s6angrev/bcdl.git
 or by cloning the repo first:
 ```
 $ git clone https://github.com/s6angrev/bcdl.git
+$ cd bcdl
 $ pip install bcdl/
 ```
 You can always still run it directly without installing by replacing the `bcdl` command with `python bcdl/__init__.py`, assuming the required packages are installed.
